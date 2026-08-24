@@ -10,11 +10,22 @@ import { es } from "./locales/locale_es.js";
 
 
 export class Extensions extends LitElement {
+  _handleFilterChange(event) {
+    const extensionList = this.shadowRoot?.querySelector("extension-list");
+
+    if (extensionList) {
+      extensionList.setFilter(event.detail);
+    }
+  }
+
   _renderContent() {
     return html`
-      <type-header> </type-header> 
+      <type-header> </type-header>
 
-      <section-header title="${es.extensionsList}"></section-header>
+      <section-header
+        title="${es.extensionsList}"
+        @filter-change=${this._handleFilterChange}
+      ></section-header>
 
       <extension-list></extension-list>
     `;

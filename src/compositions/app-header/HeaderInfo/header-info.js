@@ -11,8 +11,16 @@ export class TypeHeader extends LitElement {
     ${unsafeCSS(styles)}
   `;
   static properties = {
-    titleHeader: { type: String },
-    alignHeader: { type: String },
+    titleHeader: { 
+      type: String ,
+      attribute:"title-header"
+    },
+    alignHeader: { 
+      type: String,
+      attribute:"align-header"
+
+
+    },
   };
 
   constructor() {

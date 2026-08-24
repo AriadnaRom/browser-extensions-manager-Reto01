@@ -18,20 +18,32 @@ export class SectionHeader extends LitElement {
     this.align = "";
   }
 
+  _handleFilterChange(event) {
+    this.dispatchEvent(
+      new CustomEvent("filter-change", {
+        detail: event.detail,
+        bubbles: true,
+        composed: true,
+      }),
+    );
+  }
+
   _renderContent() {
     return html`
       <div class="section-header">
-      <type-text
-        size="xl"
-        weight="bold"
-        .text=${this.title}
-        .alignText=${this.align}
-      ></type-text>
+        <type-text
+          size="xl"
+          weight="bold"
+          .text=${this.title}
+          .alignText=${this.align}
+        ></type-text>
 
-      <div class="filter">
-        <extension-filter></extension-filter>
+        <div class="filter">
+          <extension-filter 
+          @filter-change=${this._handleFilterChange}>
+        </extension-filter>
+        </div>
       </div>
-    </div>
     `;
   }
 

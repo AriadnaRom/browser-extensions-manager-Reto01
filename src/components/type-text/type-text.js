@@ -6,12 +6,27 @@ export class TypeText extends LitElement {
     ${unsafeCSS(styles)}
   `;
 
-  static properties = {
-    text: { type: String },
-    size: { type: String },
-    alignText: { type: String },
-    weight: { type: String },
-  };
+static properties = {
+  text: {
+    type: String,
+    attribute: "text",
+  },
+
+  size: {
+    type: String,
+    attribute: "size",
+  },
+
+  alignText: {
+    type: String,
+    attribute: "align-text",
+  },
+
+  weight: {
+    type: String,
+    attribute: "weight",
+  },
+};
 
   constructor() {
     super();
@@ -27,8 +42,7 @@ export class TypeText extends LitElement {
       this.size,
        this.alignText, 
       `weight-${this.weight}`]
-      .join( " ",
-    );
+      .join( " ");
 
     return html` 
     <p class=${className}>

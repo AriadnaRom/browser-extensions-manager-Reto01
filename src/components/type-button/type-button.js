@@ -6,10 +6,21 @@ export class TypeButton extends LitElement {
     ${unsafeCSS(styles)}
   `;
   static properties = {
-    text: { type: String },
-    size: { type: String },
-    variant: { type: String },
-  };
+  text: {
+    type: String,
+    attribute: "text",
+  },
+
+  size: {
+    type: String,
+    attribute: "size",
+  },
+
+  variant: {
+    type: String,
+    attribute: "variant",
+  },
+};
 
   constructor() {
     super();
@@ -18,12 +29,13 @@ export class TypeButton extends LitElement {
     this.variant = "primary";
   }
   //los booleanos  su sola presencia es true
-_handleClick() {
+  _handleClick() {
     this.dispatchEvent(
-      new CustomEvent("button-click", {
+      new CustomEvent("type-button-click", {
         bubbles: true,
         composed: true,
-      })
+        detail: this.text,
+      }),
     );
   }
   _renderContent() {
@@ -31,14 +43,13 @@ _handleClick() {
     ${this.size} 
     ${this.variant}`;
 
-    return html` 
-    <button 
-    class=${className}
-     @click=${this._handleClick}
-    >
-    ${this.text}
-    
-    </button> `;
+    return html`
+      <button 
+      class=${className}
+     @click=${this._handleClick}>
+        ${this.text}
+      </button>
+    `;
   }
 
   render() {

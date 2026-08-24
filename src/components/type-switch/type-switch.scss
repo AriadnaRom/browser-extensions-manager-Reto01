@@ -19,9 +19,9 @@
   transition: transform 0.2s ease;
 }
 
-:host([Typechecked]) .switch {
+:host([type-checked]) .switch {
   background-color: rgb(195, 70, 50);
 }
-:host([Typechecked]) .switch__thumb {
+:host([type-checked]) .switch__thumb {
   transform: translateX(22px);
 }

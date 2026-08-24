@@ -11,42 +11,13 @@ export class ExtensionFilter extends LitElement {
 
   constructor() {
     super();
-
     this.selectedFilter = "all";
   }
 
-  _renderContent() {
-    return html`
-      <div class="filter">
-        <type-button
-          .text=${es.all}
-          size="s"
-          variant="secondary"
-          @button-click=${() => this._handleFilter("all")}
-        ></type-button>
-
-        <type-button
-          .text=${es.active}
-          size="s"
-          variant="secondary"
-          @button-click=${() => this._handleFilter("active")}
-        ></type-button>
-
-        <type-button
-          .text=${es.inactive}
-          size="s"
-          variant="secondary"
-          @button-click=${() => this._handleFilter("inactive")}
-        ></type-button>
-      </div>
-    `;
-  }
-  render() {
-    return html`${this._renderContent()}`;
-  }
 
   _handleFilter(filter) {
     this.selectedFilter = filter;
+    
 //cuando presiones un boten este  debe lanzar un evento 
  this.dispatchEvent(
     new CustomEvent("filter-change", {
@@ -57,6 +28,38 @@ export class ExtensionFilter extends LitElement {
   );
 
   }
+
+  _renderContent() {
+    return html`
+      <div class="filter">
+        <type-button
+          .text=${es.all}
+          size="s"
+          variant="secondary"
+          @type-button-click=${() => this._handleFilter("all")}
+        ></type-button>
+
+        <type-button
+          .text=${es.active}
+          size="s"
+          variant="secondary"
+          @type-button-click=${() => this._handleFilter("active")}
+        ></type-button>
+
+        <type-button
+          .text=${es.inactive}
+          size="s"
+          variant="secondary"
+          @type-button-click=${() => this._handleFilter("inactive")}
+        ></type-button>
+      </div>
+    `;
+  }
+  render() {
+    return html`${this._renderContent()}`;
+  }
+
+  
 }
 
 customElements.define("extension-filter", ExtensionFilter);

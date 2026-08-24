@@ -8,12 +8,16 @@ export class ExtensionList extends LitElement {
   static styles = css`
     ${unsafeCSS(styles)}
   `;
+
   static properties = {
-    extensionsdev: { type: Array },
+    extensions: { type: Array },
+    selectedFilter: { type: String },
   };
+
   constructor() {
     super();
-    this.extensionsdev = [];
+    this.extensions = [];
+    this.selectedFilter = "all";
   }
 
   connectedCallback() {
@@ -22,24 +26,55 @@ export class ExtensionList extends LitElement {
   }
 
   async _loadExtensions() {
-    this.extensionsdev = await getExtensions();
+    this.extensions = await getExtensions();
   }
-//.extensionLogo  propiedad de la card y extension.logo es  , extension  es dato del JSon
+
+  setFilter(filter) {
+    this.selectedFilter = filter;
+  }
+
+  get filteredExtensions() {
+
+    if (!this.extensions.length) {
+      return [];
+    }
+
+    if (this.selectedFilter === "active") {
+      return this.extensions.filter((extension) => extension.isActive);
+    }
+
+    if (this.selectedFilter === "inactive") {
+      return this.extensions.filter((extension) => !extension.isActive);
+    }
+
+    return this.extensions;
+  }
+
+
+
+  _handleToggleExtension(event) {
+    const { titleName, isActive } = event.detail;
+    this.extensions = this.extensions.map((extension) =>
+      extension.name === titleName ? { ...extension, isActive } : extension,
+    );
+  }
+
   _renderContent() {
     return html`
       <div class="container-list">
         ${repeat(
-          this.extensionsdev,
+          this.filteredExtensions,
           (extension) => extension.name,
           (extension) =>
-           html`
-            <extension-card
-              .extensionLogo=${extension.logo}
-              .extensionName=${extension.name}
-              .extensionDescription=${extension.description}
-              .isActive=${extension.isActive}
-            ></extension-card>
-          `,
+            html`
+              <extension-card
+                .icon=${extension.logo}
+                .titleName=${extension.name}
+                .description=${extension.description}
+                .isActive=${extension.isActive}
+                @toggle-extension=${this._handleToggleExtension}
+              ></extension-card>
+            `,
         )}
       </div>
     `;
