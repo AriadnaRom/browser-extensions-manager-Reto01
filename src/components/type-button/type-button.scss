@@ -1,0 +1,40 @@
+button {
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.625rem 1.25rem;
+// Variantes
+  &.primary {
+    background-color: #dee1e5;
+    color: #0d0d0d;
+    &:hover:not(:disabled) {
+   background-color: #cfd4da;
+
+}
+  }
+
+  &.secondary {
+    background-color: #df1616;
+    color: #ffffff;
+    &:hover {
+background-color: #c41414;
+
+}
+  }
+// Tamaños
+  &.s {
+    font-size: 0.875rem;
+  }
+
+  &.m {
+    font-size: 1rem;
+  }
+
+  &.l {
+    font-size: 3rem;
+    
+  }
+
+ 
+}

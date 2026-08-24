@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 2rem;
+  border: 0.1rem solid #ddd;
+background-color: #ffffff;
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+
+    type-text {
+      flex: 1;
+    }
+  }
+}
+
+$header-icon-size: 15rem;
+
+/* logo size */
+.logo type-icon {
+  --type-icon-size: #{$header-icon-size};
+  display: block;
+}
+
+//flex: 1 significa que el elemento ocupará todo el
+//espacio disponible dentro de un contenedor que tenga
+//display: flex

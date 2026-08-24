@@ -1,0 +1,60 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 10rem;
+  padding: 1rem;
+  border: 1px solid #dfe3e8;
+  border-radius: 1rem;
+  background-color: #fff;
+}
+
+.extension {
+  &-content {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  // SASS variable for card icon size
+  $card-icon-size: 50px;
+
+  /* size for icons inside cards */
+  &-content type-icon {
+    --type-icon-size: #{$card-icon-size};
+  }
+
+  &-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 3rem;
+    height: 3rem;
+
+    border-radius: 0.5rem;
+    background-color: #9ee7f5;
+  }
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  
+  }
+
+  &-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+
+  &-switch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d52f2f;
+    color: #fff;
+  }
+}

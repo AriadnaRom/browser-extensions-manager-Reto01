@@ -1,0 +1,6 @@
+.container-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.125rem;//espacio entre hijos
+  padding: 2rem 3rem;
+}
