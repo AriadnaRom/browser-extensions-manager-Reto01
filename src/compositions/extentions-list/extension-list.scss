@@ -1,6 +1,22 @@
 .container-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+ grid-template-columns: repeat(
+    auto-fit,
+    minmax(280px, 1fr)
+  );
   gap: 3.125rem;//espacio entre hijos
   padding: 2rem 3rem;
+}
+/* Tablet */
+@media (max-width: 768px) {
+  .container-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Celular */
+@media (max-width: 480px) {
+  .container-list {
+    grid-template-columns: 1fr;
+  }
 }

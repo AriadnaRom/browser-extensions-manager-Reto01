@@ -1,13 +1,46 @@
+@font-face {
+  font-family: "Noto Sans";
+  src: url("/src/assets/fonts/static/NotoSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
 
+@font-face {
+  font-family: "Noto Sans";
+  src: url("/src/assets/fonts/static/NotoSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
 
+@font-face {
+  font-family: "Noto Sans";
+  src: url("/src/assets/fonts/static/NotoSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
 
-$font-family: "Roboto", sans-serif;
-$text-color:dark;
+:root {
+  --font-family-primary: "Noto Sans", sans-serif;
+}
 
 body {
+  font-family: var(--font-family-primary);
   background: #eefafa;
 }
 
 :root {
   --color-primary: #c92a22;
 }
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+@media (max-width: 600px) {
+      :host {
+        padding: 1rem;
+      }
+    }
