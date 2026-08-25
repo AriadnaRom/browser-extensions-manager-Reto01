@@ -1,16 +1,30 @@
 .container-list {
-  display: grid;
- grid-template-columns: repeat(
-    auto-fit,
-    minmax(280px, 1fr)
-  );
-  gap: 3.125rem;//espacio entre hijos
-  padding: 2rem 3rem;
+   display: grid;
+
+  // Desktop: 4 columnas
+  grid-template-columns: repeat(3, 1fr);
+
+  // 3 filas implícitamente según la cantidad de cards
+  gap: 3.125rem;
+
+  padding: rem 2rem;
+  box-sizing: border-box;
 }
 /* Tablet */
+@media (max-width: 1024px) {
+  .container-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+  }
+}
+
+/* Tablet pequeña */
 @media (max-width: 768px) {
   .container-list {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem;
   }
 }
 
@@ -18,5 +32,7 @@
 @media (max-width: 480px) {
   .container-list {
     grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
   }
 }

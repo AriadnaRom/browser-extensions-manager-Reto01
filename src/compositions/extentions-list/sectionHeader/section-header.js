@@ -40,7 +40,7 @@ export class SectionHeader extends LitElement {
 
         <div class="filter">
           <extension-filter 
-          @filter-change=${this._handleFilterChange}>
+          @extension-filter-change=${this._handleFilterChange}>
         </extension-filter>
         </div>
       </div>

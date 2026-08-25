@@ -11,7 +11,10 @@ export class ExtensionList extends LitElement {
 
   static properties = {
     extensions: { type: Array },
-    selectedFilter: { type: String },
+    selectedFilter: {
+      type: String,
+      attribute: "selected-filter",
+    },
   };
 
   constructor() {
@@ -34,7 +37,6 @@ export class ExtensionList extends LitElement {
   }
 
   get filteredExtensions() {
-
     if (!this.extensions.length) {
       return [];
     }
@@ -50,10 +52,10 @@ export class ExtensionList extends LitElement {
     return this.extensions;
   }
 
-
-
   _handleToggleExtension(event) {
-    const { titleName, isActive } = event.detail;
+    const { titleName, isActive } = event.detail; //destructuring  osea saca las propeidas del objeto y los asigna a uno
+    //se ahorra codigo
+
     this.extensions = this.extensions.map((extension) =>
       extension.name === titleName ? { ...extension, isActive } : extension,
     );
@@ -65,16 +67,15 @@ export class ExtensionList extends LitElement {
         ${repeat(
           this.filteredExtensions,
           (extension) => extension.name,
-          (extension) =>
-            html`
-              <extension-card
-                .icon=${extension.logo}
-                .titleName=${extension.name}
-                .description=${extension.description}
-                .isActive=${extension.isActive}
-                @toggle-extension=${this._handleToggleExtension}
-              ></extension-card>
-            `,
+          (extension) => html`
+            <extension-card
+              .icon=${extension.logo}
+              .titleName=${extension.name}
+              .description=${extension.description}
+              .isActive=${extension.isActive}
+              @extension-card-toggle-extension=${this._handleToggleExtension}
+            ></extension-card>
+          `,
         )}
       </div>
     `;

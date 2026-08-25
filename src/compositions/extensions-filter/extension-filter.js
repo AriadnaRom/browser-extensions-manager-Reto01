@@ -20,7 +20,7 @@ export class ExtensionFilter extends LitElement {
     
 //cuando presiones un boten este  debe lanzar un evento 
  this.dispatchEvent(
-    new CustomEvent("filter-change", {
+    new CustomEvent("extension-filter-change", {
       detail: filter,
       bubbles: true,
       composed: true,

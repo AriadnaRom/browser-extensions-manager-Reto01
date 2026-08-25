@@ -56,8 +56,10 @@ export class ExtensionCard extends LitElement {
   _handleToggle(event) {
     this.isActive = Boolean(event.detail);
     this.dispatchEvent(
-      new CustomEvent("toggle-extension", {
-        detail: { titleName: this.titleName, isActive: this.isActive },
+      new CustomEvent("extension-card-toggle-extension", {
+        detail: { 
+          titleName: this.titleName,
+           isActive: this.isActive },
         bubbles: true,
         composed: true,
       }),
