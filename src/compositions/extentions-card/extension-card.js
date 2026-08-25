@@ -32,7 +32,7 @@ export class ExtensionCard extends LitElement {
       attribute: "is-active",
     },
   };
-//lo que conteine el card
+  //lo que conteine el card
   constructor() {
     super();
     this.titleName = "";
@@ -41,8 +41,7 @@ export class ExtensionCard extends LitElement {
     this.isActive = false;
   }
 
-
-//hace que se  elimine la card
+  //hace que se  elimine la card
   _handleRemove() {
     this.dispatchEvent(
       new CustomEvent("remove-extension", {
@@ -52,14 +51,15 @@ export class ExtensionCard extends LitElement {
       }),
     );
   }
-// hace que se valide que el switch sea activo o inactivo dentro del card
+  // hace que se valide que el switch sea activo o inactivo dentro del card
   _handleToggle(event) {
     this.isActive = Boolean(event.detail);
     this.dispatchEvent(
       new CustomEvent("extension-card-toggle-extension", {
-        detail: { 
+        detail: {
           titleName: this.titleName,
-           isActive: this.isActive },
+          isActive: this.isActive,
+        },
         bubbles: true,
         composed: true,
       }),
@@ -69,7 +69,9 @@ export class ExtensionCard extends LitElement {
     return html`
       <div class="card">
         <div class="extension-content">
-          <type-icon .src=${this.icon}></type-icon>
+          <div class="extension-icon">
+            <type-icon .src=${this.icon}></type-icon>
+          </div>
 
           <div class="extension-info">
             <type-text
@@ -77,7 +79,6 @@ export class ExtensionCard extends LitElement {
               weight="semibold"
               .text=${this.titleName}
             ></type-text>
-
             <type-text
               size="m"
               weight="medium"
@@ -89,8 +90,8 @@ export class ExtensionCard extends LitElement {
         <div class="extension-actions">
           <type-button
             text="Remove"
-            size="s"
-            variant="primary"
+            size="m"
+            variant="secondary"
             @type-button-click=${this._handleRemove}
           ></type-button>
 
@@ -102,7 +103,6 @@ export class ExtensionCard extends LitElement {
       </div>
     `;
   }
-
 
   render() {
     return html`${this._renderContent()}`;

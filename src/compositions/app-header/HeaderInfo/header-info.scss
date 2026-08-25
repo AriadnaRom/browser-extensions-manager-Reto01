@@ -1,30 +1,30 @@
 .header {
+  max-width: 1200px;
+  margin: 2rem auto;
   display: flex;
   align-items: center;
-  padding: 10px 16px;
-  border-radius: 2rem;
-  border: 0.1rem solid #ddd;
-background-color: #ffffff;
+  justify-content: space-between;
+  padding: 8px 12px;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  padding: 1rem 1.5rem;
+
   &__brand {
     display: flex;
     align-items: center;
-    gap: 8px;
-    flex: 1;
+    gap: 1rem;
 
     type-text {
-      flex: 1;
+      flex: none;
     }
   }
 }
 
-$header-icon-size: 15rem;
+$header-icon-size: 13rem;
 
-/* logo size */
 .logo type-icon {
   --type-icon-size: #{$header-icon-size};
   display: block;
 }
-
-//flex: 1 significa que el elemento ocupará todo el
-//espacio disponible dentro de un contenedor que tenga
-//display: flex

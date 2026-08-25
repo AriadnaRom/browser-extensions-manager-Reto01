@@ -20,7 +20,7 @@ export class SectionHeader extends LitElement {
 
   _handleFilterChange(event) {
     this.dispatchEvent(
-      new CustomEvent("filter-change", {
+      new CustomEvent("section-header-filter-change", {
         detail: event.detail,
         bubbles: true,
         composed: true,

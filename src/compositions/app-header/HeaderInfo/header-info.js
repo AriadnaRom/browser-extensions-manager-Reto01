@@ -38,7 +38,7 @@ export class TypeHeader extends LitElement {
           </div>
         </div>
 
-        <type-button text="🌙" size="l" variant="primary"> </type-button>
+        <type-button text="🌙" size="l" variant="tertiary"> </type-button>
       </header>
     `;
   }

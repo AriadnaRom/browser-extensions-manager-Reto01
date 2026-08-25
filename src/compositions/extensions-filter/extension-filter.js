@@ -34,22 +34,22 @@ export class ExtensionFilter extends LitElement {
       <div class="filter">
         <type-button
           .text=${es.all}
-          size="s"
-          variant="secondary"
+          size="l"
+          variant=${this.selectedFilter === "all" ? "primary" : "secondary"}
           @type-button-click=${() => this._handleFilter("all")}
         ></type-button>
 
         <type-button
           .text=${es.active}
-          size="s"
-          variant="secondary"
+          size="l"
+          variant=${this.selectedFilter === "active" ? "primary" : "secondary"}
           @type-button-click=${() => this._handleFilter("active")}
         ></type-button>
 
         <type-button
           .text=${es.inactive}
-          size="s"
-          variant="secondary"
+          size="l"
+          variant=${this.selectedFilter === "inactive" ? "primary" : "secondary"}
           @type-button-click=${() => this._handleFilter("inactive")}
         ></type-button>
       </div>
