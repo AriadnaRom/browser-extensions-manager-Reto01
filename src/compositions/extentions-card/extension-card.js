@@ -44,7 +44,7 @@ export class ExtensionCard extends LitElement {
   //hace que se  elimine la card
   _handleRemove() {
     this.dispatchEvent(
-      new CustomEvent("remove-extension", {
+      new CustomEvent("extension-card-remove-extension", {
         detail: this.titleName,
         bubbles: true,
         composed: true,

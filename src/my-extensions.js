@@ -9,11 +9,18 @@ import "./components/type-switch/type-switch.js";
 import { es } from "./locales/locale_es.js";
 
 export class Extensions extends LitElement {
+
   _handleFilterChange(event) {
-    const extensionList = this.shadowRoot?.querySelector("extension-list");
+    const extensionList = 
+    this.shadowRoot?.querySelector("extension-list");
+
+    //dices dentro del componente (this) , bsucame  el eleemto extension-lsit
+    //y guardo en la variable extensionList
 
     if (extensionList) {
       extensionList.setFilter(event.detail);
+
+      //Al componente <extension-list>, ejecútale su método setFilter()
     }
   }
 

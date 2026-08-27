@@ -17,7 +17,6 @@ export class ExtensionFilter extends LitElement {
 
   _handleFilter(filter) {
     this.selectedFilter = filter;
-    
 //cuando presiones un boten este  debe lanzar un evento 
  this.dispatchEvent(
     new CustomEvent("extension-filter-change", {

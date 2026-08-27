@@ -31,7 +31,7 @@ export class ExtensionList extends LitElement {
   async _loadExtensions() {
     this.extensions = await getExtensions();
   }
-
+//se guarda el boton  de parte de extneison filter
   setFilter(filter) {
     this.selectedFilter = filter;
   }
@@ -61,6 +61,13 @@ export class ExtensionList extends LitElement {
     );
   }
 
+  _handleRemoveExtension(event) {
+    const titleName = event.detail;
+    this.extensions = this.extensions.filter(
+      (extension) => extension.name !== titleName,
+    );
+  }
+
   _renderContent() {
     return html`
       <div class="container-list">
@@ -74,6 +81,7 @@ export class ExtensionList extends LitElement {
               .description=${extension.description}
               .isActive=${extension.isActive}
               @extension-card-toggle-extension=${this._handleToggleExtension}
+              @extension-card-remove-extension=${this._handleRemoveExtension}
             ></extension-card>
           `,
         )}

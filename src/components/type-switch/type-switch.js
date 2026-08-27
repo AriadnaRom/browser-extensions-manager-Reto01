@@ -23,7 +23,7 @@ export class TypeSwitch extends LitElement {
   _handleClick() {
     this.typeChecked = !this.typeChecked;//true encendido
     this.dispatchEvent(
-      new CustomEvent("type-switch-change", {
+      new CustomEvent("type-switch-change", {//etail del evento 
         detail: this.typeChecked,
         bubbles: true,
         composed: true,

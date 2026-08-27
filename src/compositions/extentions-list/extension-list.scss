@@ -3,8 +3,8 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
   padding: 2rem;
-  
 }
+
 /* Tablet */
 @media (max-width: 1024px) {
   .container-list {
@@ -13,12 +13,7 @@
     padding: 2rem;
   }
 }
-@media (max-width: 1024px) {
-.container-list {
-grid-template-columns: repeat(3, 1fr);
-}
 
-}
 /* Tablet pequeña */
 @media (max-width: 768px) {
   .container-list {
@@ -28,12 +23,12 @@ grid-template-columns: repeat(3, 1fr);
   }
 }
 
-/* Celular */
+/* Móvil */
 @media (max-width: 480px) {
   .container-list {
     grid-template-columns: 1fr;
+    justify-items: center;
     gap: 1rem;
     padding: 1rem;
   }
 }
-
