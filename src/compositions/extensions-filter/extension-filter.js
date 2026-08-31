@@ -13,19 +13,22 @@ export class ExtensionFilter extends LitElement {
     super();
     this.selectedFilter = "all";
   }
-
+_getFilterVariant(filterOption) {
+  return this.selectedFilter === filterOption
+    ? "primary"
+    : "secondary";
+}
 
   _handleFilter(filter) {
     this.selectedFilter = filter;
-//cuando presiones un boten este  debe lanzar un evento 
- this.dispatchEvent(
+    this.dispatchEvent(
     new CustomEvent("extension-filter-change", {
       detail: filter,
       bubbles: true,
       composed: true,
     })
   );
-
+//cuando presiones un boten este  debe lanzar un evento 
   }
 
   _renderContent() {
@@ -34,21 +37,21 @@ export class ExtensionFilter extends LitElement {
         <type-button
           .text=${es.all}
           size="l"
-          variant=${this.selectedFilter === "all" ? "primary" : "secondary"}
+          variant=${this._getFilterVariant("all")}
           @type-button-click=${() => this._handleFilter("all")}
         ></type-button>
 
         <type-button
           .text=${es.active}
           size="l"
-          variant=${this.selectedFilter === "active" ? "primary" : "secondary"}
+          variant=${this._getFilterVariant("active")}
           @type-button-click=${() => this._handleFilter("active")}
         ></type-button>
 
         <type-button
           .text=${es.inactive}
           size="l"
-          variant=${this.selectedFilter === "inactive" ? "primary" : "secondary"}
+          variant=${this._getFilterVariant("inactive")}
           @type-button-click=${() => this._handleFilter("inactive")}
         ></type-button>
       </div>

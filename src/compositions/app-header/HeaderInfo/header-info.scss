@@ -7,8 +7,8 @@
   padding: 8px 12px;
   margin-bottom: 2rem;
   border-radius: 12px;
-  border: 1px solid #ddd;
-  background-color: #fff;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
   padding: 1rem 1.5rem;
 
   &__brand {

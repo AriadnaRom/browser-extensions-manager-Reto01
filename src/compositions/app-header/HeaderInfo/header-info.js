@@ -2,7 +2,6 @@ import { LitElement, html, css, unsafeCSS } from "lit";
 import styles from "./header-info.scss?inline";
 import "../../../components/type-text/type-text.js";
 import "../../../components/type-button/type-button.js";
-//import "../../../components/logo/App-logo.js"
 import "../../../components/type-icon/type-icon.js";
 import logo from "../../../assets/images/logo.svg";
 
@@ -11,20 +10,20 @@ export class TypeHeader extends LitElement {
     ${unsafeCSS(styles)}
   `;
   static properties = {
-    titleHeader: { 
-      type: String ,
-      attribute:"title-header"
-    },
-    alignHeader: { 
+    isDark: { type: Boolean },
+    titleHeader: {
       type: String,
-      attribute:"align-header"
-
-
+      attribute: "title-header",
+    },
+    alignHeader: {
+      type: String,
+      attribute: "align-header",
     },
   };
 
   constructor() {
     super();
+    this.isDark = false;
     this.titleHeader = "";
     this.alignHeader = "";
   }
@@ -38,7 +37,12 @@ export class TypeHeader extends LitElement {
           </div>
         </div>
 
-        <type-button text="🌙" size="l" variant="tertiary"> </type-button>
+        <type-button
+          .text=${this.isDark ? "☀️" : "🌙"}
+          size="l"
+          variant="tertiary"
+          @type-button-click=${this._toggleTheme}
+        ></type-button>
       </header>
     `;
   }

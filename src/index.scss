@@ -18,15 +18,35 @@
 
 :root {
   --font-family-primary: "Noto Sans", sans-serif;
+  --color-primary: #c92a22;
+  --color-primary-hover: #a8201a;
+  --color-background: #eefafa;
+  --color-surface: #ffffff;//color de las card
+  --color-surface-muted: #e6f7fb;
+  --color-text: #17202a;
+  --color-text-muted: #5e6872;
+  --color-border: #d9e3e8;
+  --color-shadow: rgba(28, 64, 94, 0.1);
+  --color-focus: #f1a208;
+}
+
+:root[data-theme="dark"] {
+  --color-background: #17202a;
+  --color-surface: #24313d;
+  --color-surface-muted: #304653;
+  --color-text: #f4f7f8;
+  --color-text-muted: #b7c4ca;
+  --color-border: #435461;
+  --color-shadow: rgba(0, 0, 0, 0.22);
 }
 
 body {
   font-family: var(--font-family-primary);
-  background: #eefafa;
-}
-
-:root {
-  --color-primary: #c92a22;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease;
 }
 
 * {
