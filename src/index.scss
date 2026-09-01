@@ -24,7 +24,7 @@
   --color-surface: #ffffff;//color de las card
   --color-surface-muted: #e6f7fb;
   --color-text: #17202a;
-  --color-text-muted: #525866;
+  --color-text-muted: #525b75;
   --color-muted: #e7eced;
   --color-border: #d9e3e8;
   --color-shadow: rgba(28, 64, 94, 0.1);
@@ -46,9 +46,6 @@ body {
   font-family: var(--font-family-primary);
   color: var(--color-text);
   background: var(--color-background);
-  transition:
-    color 0.25s ease,
-    background-color 0.25s ease;
 }
 
 * {

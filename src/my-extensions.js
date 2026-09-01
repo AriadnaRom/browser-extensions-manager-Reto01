@@ -41,7 +41,7 @@ export class Extensions extends LitElement {
       <main class="app-container">
         <type-header
           .isDark=${this.isDark}
-          @theme-change=${this._handleThemeChange}
+          @header-info-theme-change=${this._handleThemeChange}
         ></type-header>
 
         <section class="extensions-section">

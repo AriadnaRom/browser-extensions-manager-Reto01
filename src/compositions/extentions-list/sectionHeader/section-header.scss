@@ -18,13 +18,17 @@ type-text {
 }
 @media (max-width: 600px) {
   .section-header {
+    align-items: center; /* centra todo */
     flex-direction: column;
-    align-items: stretch;
+    justify-content: center;
     gap: 1rem;
+    text-align: center;
   }
 
   .filter {
     width: 100%;
+    width: auto; 
+justify-content: center;
     display: flex;
     justify-content: space-between;
   }

@@ -54,6 +54,13 @@ _getFilterVariant(filterOption) {
           variant=${this._getFilterVariant("inactive")}
           @type-button-click=${() => this._handleFilter("inactive")}
         ></type-button>
+
+         <type-button
+          .text=${es.remove}
+          size="l"
+          variant=${this._getFilterVariant("remove")}
+          @type-button-click=${() => this._handleFilter("remove")}
+        ></type-button>
       </div>
     `;
   }

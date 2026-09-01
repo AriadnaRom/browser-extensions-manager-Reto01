@@ -1,15 +1,15 @@
 .header {
-  max-width: 1120px;
-  margin: 2rem auto;
+  max-width: 1105px;
+  margin: 3rem auto 2rem auto; 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 12px;
-  margin-bottom: 2rem;
+  padding: 0.5rem 0.5rem;
+  margin-bottom: 4rem;
   border-radius: 12px;
   border: 1px solid var(--color-border);
   background-color: var(--color-surface);
-  padding: 1rem 1.5rem;
+
 
   &__brand {
     display: flex;
@@ -22,7 +22,7 @@
   }
 }
 
-$header-icon-size: 11rem;
+$header-icon-size: 10rem;
 
 .logo type-icon {
   --type-icon-size: #{$header-icon-size};

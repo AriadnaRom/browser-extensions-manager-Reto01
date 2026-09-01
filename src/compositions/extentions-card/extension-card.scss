@@ -2,7 +2,7 @@
   width: 100%;
   max-width: none;
   height: 14rem;
-  padding: 1rem 1.5rem;
+ padding: 24px;
   border: 1px solid var(--color-border);
   border-radius: 1.25rem;
   background-color: var(--color-surface);
@@ -29,7 +29,7 @@
   }
 
   // SASS variable el tamño de icon en la card
-  $card-icon-size: 44px;
+  $card-icon-size: 48px;
 
   &-icon type-icon {
     --type-icon-size: #{$card-icon-size};
@@ -39,9 +39,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 2.75rem;
+    width: 48px;
     margin-top: 0.25rem; // prueba esto
-    height: 2.75rem;
+    height: 48px;
     border-radius: 1rem;
     background-color: var(--color-surface-muted);
     box-shadow: 0 4px 12px var(--color-shadow);

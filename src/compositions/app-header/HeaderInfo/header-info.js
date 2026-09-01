@@ -23,7 +23,7 @@ export class TypeHeader extends LitElement {
 
   _toggleTheme() {
     this.dispatchEvent(
-      new CustomEvent("theme-change", {
+      new CustomEvent("header-info-theme-change", {
         detail: !this.isDark,
         bubbles: true,
         composed: true,
