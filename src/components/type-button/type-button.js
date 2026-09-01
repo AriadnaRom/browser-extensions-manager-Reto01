@@ -46,8 +46,8 @@ export class TypeButton extends LitElement {
     return html`
       <button 
       class=${className}
-     @click=${this._handleClick}>
-        ${this.text}
+       @click=${this._handleClick}>
+        ${this.text? this.text: html`<slot></slot>`}
       </button>
     `;
   }

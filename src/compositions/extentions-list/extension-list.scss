@@ -1,8 +1,13 @@
 .container-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  max-width: 1120px;
+  margin: 0 auto;
+  grid-template-columns: repeat(
+auto-fit,
+minmax(320px, 1fr)
+);
   gap: 1.25rem;
-  padding: 2rem;
+  padding: 1.5rem 0;
 }
 
 /* Tablet */

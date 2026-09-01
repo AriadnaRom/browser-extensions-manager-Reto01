@@ -1,7 +1,7 @@
 .card {
   width: 100%;
-  max-width: 22rem;
-  min-height: 15rem;
+  max-width: none;
+  height: 14rem;
   padding: 1rem 1.5rem;
   border: 1px solid var(--color-border);
   border-radius: 1.25rem;
@@ -22,14 +22,16 @@
 .extension {
   &-content {
     display: flex;
-    gap: 0.55rem;
+    gap: 1rem;
+    padding-top: 0.25rem;
     align-items: flex-start;
+    width: 100%;
   }
 
   // SASS variable el tamño de icon en la card
-  $card-icon-size: 50px;
+  $card-icon-size: 44px;
 
-  &-content type-icon {
+  &-icon type-icon {
     --type-icon-size: #{$card-icon-size};
   }
 
@@ -37,22 +39,29 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 3.25rem;
-    height: 3.25rem;
-    border-radius: 0.75rem;
+    width: 2.75rem;
+    margin-top: 0.25rem; // prueba esto
+    height: 2.75rem;
+    border-radius: 1rem;
     background-color: var(--color-surface-muted);
-    box-shadow: 0 4px 8px var(--color-shadow);
+    box-shadow: 0 4px 12px var(--color-shadow);
+    flex-shrink: 0;
   }
 
-  &-info {
-    margin-top: -2px;
+  .extension-info {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start; // importante
-    gap: 0;
+    gap: 0.75rem;
+    margin-top: -0;
+    padding: 0;
     flex: 1;
-    min-width: 0;
+  }
+
+  .extension-info type-text {
+    display: block;
+    margin: 0;
+    padding: 0;
   }
 
   &-actions {
@@ -83,5 +92,5 @@
   display: block;
   margin: 0;
   padding: 0;
-  line-height: 1.1;
+  line-height: 1.5;
 }

@@ -4,30 +4,32 @@ import "../../../components/type-text/type-text.js";
 import "../../../components/type-button/type-button.js";
 import "../../../components/type-icon/type-icon.js";
 import logo from "../../../assets/images/logo.svg";
+import iconSun from "../../../assets/images/icon-sun.svg";
+import iconMoon from "../../../assets/images/icon-moon.svg";
 
 export class TypeHeader extends LitElement {
   static styles = css`
     ${unsafeCSS(styles)}
   `;
+
   static properties = {
     isDark: { type: Boolean },
-    titleHeader: {
-      type: String,
-      attribute: "title-header",
-    },
-    alignHeader: {
-      type: String,
-      attribute: "align-header",
-    },
   };
 
   constructor() {
     super();
-    this.isDark = false;
-    this.titleHeader = "";
-    this.alignHeader = "";
+   this.isDark = false; // valor inicial
   }
 
+  _toggleTheme() {
+    this.dispatchEvent(
+      new CustomEvent("theme-change", {
+        detail: !this.isDark,
+        bubbles: true,
+        composed: true,
+      }),
+    );
+  }
   _renderContent() {
     return html`
       <header class="header">
@@ -36,13 +38,13 @@ export class TypeHeader extends LitElement {
             <type-icon .src=${logo}></type-icon>
           </div>
         </div>
-
         <type-button
-          .text=${this.isDark ? "☀️" : "🌙"}
-          size="l"
+          class="theme-toggle"
           variant="tertiary"
           @type-button-click=${this._toggleTheme}
-        ></type-button>
+        >
+          <type-icon .src=${this.isDark ? iconSun : iconMoon}></type-icon>
+        </type-button>
       </header>
     `;
   }

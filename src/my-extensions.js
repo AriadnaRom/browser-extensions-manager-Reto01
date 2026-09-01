@@ -9,10 +9,22 @@ import "./components/type-switch/type-switch.js";
 import { es } from "./locales/locale_es.js";
 
 export class Extensions extends LitElement {
+  static properties = {
+    isDark: { type: Boolean },
+  };
+
+  constructor() {
+    super();
+    this.isDark = false;
+  }
+
+ _handleThemeChange(event) {
+  this.isDark = event.detail; // toma el valor que mandó el hijo
+   document.documentElement.setAttribute("data-theme", this.isDark ? "dark" : "light");
+}
 
   _handleFilterChange(event) {
-    const extensionList = 
-    this.shadowRoot?.querySelector("extension-list");
+    const extensionList = this.shadowRoot?.querySelector("extension-list");
 
     //dices dentro del componente (this) , bsucame  el eleemto extension-lsit
     //y guardo en la variable extensionList
@@ -27,7 +39,10 @@ export class Extensions extends LitElement {
   _renderContent() {
     return html`
       <main class="app-container">
-        <type-header> </type-header>
+        <type-header
+          .isDark=${this.isDark}
+          @theme-change=${this._handleThemeChange}
+        ></type-header>
 
         <section class="extensions-section">
           <section-header

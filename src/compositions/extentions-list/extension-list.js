@@ -36,28 +36,25 @@ export class ExtensionList extends LitElement {
     this.selectedFilter = filter;
   }
 
-  get filteredExtensions() {
-    if (!this.extensions.length) {
-      return [];
-    }
-
-    if (this.selectedFilter === "active") {
+ get filteredExtensions() {
+  switch (this.selectedFilter) {
+    case "active":
       return this.extensions.filter((extension) => extension.isActive);
-    }
-
-    if (this.selectedFilter === "inactive") {
+    case "inactive":
       return this.extensions.filter((extension) => !extension.isActive);
-    }
-
-    return this.extensions;
+    default:
+      return this.extensions;
   }
+}
 
   _handleToggleExtension(event) {
     const { titleName, isActive } = event.detail; //destructuring  osea saca las propeidas del objeto y los asigna a uno
     //se ahorra codigo
-
+//neuvo array map y llamalo extension 
     this.extensions = this.extensions.map((extension) =>
-      extension.name === titleName ? { ...extension, isActive } : extension,
+      extension.name === titleName ? 
+    { ...extension, isActive } 
+    : extension,
     );
   }
 

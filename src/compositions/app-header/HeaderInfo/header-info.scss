@@ -1,5 +1,5 @@
 .header {
-  max-width: 1200px;
+  max-width: 1120px;
   margin: 2rem auto;
   display: flex;
   align-items: center;
@@ -22,9 +22,11 @@
   }
 }
 
-$header-icon-size: 13rem;
+$header-icon-size: 11rem;
 
 .logo type-icon {
   --type-icon-size: #{$header-icon-size};
   display: block;
 }
+
+

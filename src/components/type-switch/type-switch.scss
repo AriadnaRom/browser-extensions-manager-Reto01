@@ -21,7 +21,17 @@
 
 :host([type-checked]) .switch {
   background-color: var(--color-primary);
+ border-color: #8f1d18; // rojo más oscuro
 }
 :host([type-checked]) .switch__thumb {
   transform: translateX(22px);
+}
+
+.switch:hover,
+.switch:focus-visible {
+  box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+.switch:focus-visible {
+  outline: none;
 }

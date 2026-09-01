@@ -24,7 +24,8 @@
   --color-surface: #ffffff;//color de las card
   --color-surface-muted: #e6f7fb;
   --color-text: #17202a;
-  --color-text-muted: #5e6872;
+  --color-text-muted: #525866;
+  --color-muted: #e7eced;
   --color-border: #d9e3e8;
   --color-shadow: rgba(28, 64, 94, 0.1);
   --color-focus: #f1a208;
@@ -38,6 +39,7 @@
   --color-text-muted: #b7c4ca;
   --color-border: #435461;
   --color-shadow: rgba(0, 0, 0, 0.22);
+    --color-muted: #17202a;
 }
 
 body {
@@ -67,7 +69,7 @@ body {
 
 .app-container {
   width: 100%;
-  max-width: 900px;
+  max-width: 1120px;
   margin: 0 auto;
   padding: 1.5rem;
 }
