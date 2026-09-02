@@ -49,6 +49,7 @@
   }
 
   .extension-info {
+    font-size: clamp(0.8rem, 1vw, 1rem);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -57,7 +58,9 @@
     padding: 0;
     flex: 1;
   }
-
+.extension-info .title {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+}
   .extension-info type-text {
     display: block;
     margin: 0;

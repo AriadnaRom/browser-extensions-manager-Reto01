@@ -11,6 +11,7 @@ export class ExtensionList extends LitElement {
 
   static properties = {
     extensions: { type: Array },
+
     selectedFilter: {
       type: String,
       attribute: "selected-filter",
@@ -31,37 +32,44 @@ export class ExtensionList extends LitElement {
   async _loadExtensions() {
     this.extensions = await getExtensions();
   }
-//se guarda el boton  de parte de extneison filter
+
+  //se guarda el boton  de parte de extneison filter
   setFilter(filter) {
     this.selectedFilter = filter;
   }
 
- get filteredExtensions() {
-  switch (this.selectedFilter) {
-    case "active":
-      return this.extensions.filter((extension) => extension.isActive);
-    case "inactive":
-      return this.extensions.filter((extension) => !extension.isActive);
-    default:
-      return this.extensions;
+  get filteredExtensions() {
+    switch (this.selectedFilter) {
+      case "active":
+        return this.extensions.filter(
+          (extension) => extension.isActive && !extension.isRemoved,
+        );
+      case "inactive":
+        return this.extensions.filter(
+          (extension) => !extension.isActive && !extension.isRemoved,
+        );
+      case "remove":
+        return this.extensions.filter((extension) => extension.isRemoved);
+      default:
+        return this.extensions.filter((extension) => !extension.isRemoved);
+    }
   }
-}
 
   _handleToggleExtension(event) {
     const { titleName, isActive } = event.detail; //destructuring  osea saca las propeidas del objeto y los asigna a uno
     //se ahorra codigo
-//neuvo array map y llamalo extension 
+    //neuvo array map y llamalo extension
     this.extensions = this.extensions.map((extension) =>
-      extension.name === titleName ? 
-    { ...extension, isActive } 
-    : extension,
+      extension.name === titleName ? { ...extension, isActive } : extension,
     );
   }
 
   _handleRemoveExtension(event) {
     const titleName = event.detail;
-    this.extensions = this.extensions.filter(
-      (extension) => extension.name !== titleName,
+    this.extensions = this.extensions.map((extension) =>
+      extension.name === titleName
+        ? { ...extension, isRemoved: true }
+        : extension,
     );
   }
 

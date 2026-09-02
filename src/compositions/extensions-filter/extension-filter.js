@@ -13,12 +13,15 @@ export class ExtensionFilter extends LitElement {
     super();
     this.selectedFilter = "all";
   }
+
+  //METODO PARA OBTENER EL ESTILO DEL BOTON SEGUN EL FILTRO SELECCIONADO
 _getFilterVariant(filterOption) {
+  //es el filtro que está actualmente seleccionado
   return this.selectedFilter === filterOption
     ? "primary"
     : "secondary";
 }
-
+//METODO PARA MANEJAR EL CAMBIO DE FILTRO
   _handleFilter(filter) {
     this.selectedFilter = filter;
     this.dispatchEvent(

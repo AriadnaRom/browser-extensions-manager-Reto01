@@ -18,16 +18,18 @@ export class Extensions extends LitElement {
     this.isDark = false;
   }
 
- _handleThemeChange(event) {
-  this.isDark = event.detail; // toma el valor que mandó el hijo
-   document.documentElement.setAttribute("data-theme", this.isDark ? "dark" : "light");
-}
+  _handleThemeChange(event) {
+    this.isDark = event.detail; // toma el valor que mandó el hijo
+    document.documentElement.setAttribute(
+      "data-theme",
+      this.isDark ? "dark" : "light",
+    );
+  }
+  //dices dentro del componente (this) , bsucame  el elememto extension-lsit
+  //y guardo en la variable extensionList
 
   _handleFilterChange(event) {
     const extensionList = this.shadowRoot?.querySelector("extension-list");
-
-    //dices dentro del componente (this) , bsucame  el eleemto extension-lsit
-    //y guardo en la variable extensionList
 
     if (extensionList) {
       extensionList.setFilter(event.detail);
@@ -58,6 +60,6 @@ export class Extensions extends LitElement {
   render() {
     return html` ${this._renderContent()} `;
   }
-}
+} 
 
 customElements.define("my-extensions", Extensions);

@@ -1,36 +1,28 @@
+/* Desktop */
 .container-list {
   display: grid;
   max-width: 1120px;
   margin: 1.5rem auto 0 auto;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
-  padding: 0;
 }
-
 /* Tablet */
-@media (max-width: 1024px) {
-  .container-list {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    padding: 2rem;
-  }
-}
-
-/* Tablet pequeña */
-@media (max-width: 768px) {
+@media (max-width: 920px) {
   .container-list {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    padding: 1.5rem;
   }
 }
 
-/* Móvil */
-@media (max-width: 480px) {
+/* Mobile */
+@media (max-width: 665px) {
   .container-list {
     grid-template-columns: 1fr;
-    justify-items: center;
-    gap: 1rem;
     padding: 1rem;
   }
+
+  .card {
+    width: 100%;
+    max-width: none;
+  }
+  
 }

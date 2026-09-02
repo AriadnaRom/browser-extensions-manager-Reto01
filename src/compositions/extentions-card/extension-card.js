@@ -31,6 +31,11 @@ export class ExtensionCard extends LitElement {
       type: Boolean,
       attribute: "is-active",
     },
+
+    isRemoved: {
+      type: Boolean,
+      attribute: "is-removed",
+    },
   };
   //lo que conteine el card
   constructor() {
@@ -39,6 +44,7 @@ export class ExtensionCard extends LitElement {
     this.description = "";
     this.icon = "";
     this.isActive = false;
+    this.isRemoved = false;
   }
 
   //hace que se  elimine la card
