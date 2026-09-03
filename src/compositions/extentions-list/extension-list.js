@@ -2,7 +2,7 @@ import { LitElement, html, css, unsafeCSS } from "lit";
 import styles from "./extension-list.scss?inline";
 import { repeat } from "lit/directives/repeat.js";
 import "../extentions-card/extension-card.js";
-import { getExtensions } from "../../service/extension-service.js";
+import { getExtensions } from "@/service/extension-service.js";
 
 export class ExtensionList extends LitElement {
   static styles = css`

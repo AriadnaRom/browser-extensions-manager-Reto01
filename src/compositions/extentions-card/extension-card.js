@@ -1,9 +1,9 @@
 import { LitElement, html, css, unsafeCSS } from "lit";
 import styles from "./extension-card.scss?inline";
-import "../../components/type-text/type-text.js";
-import "../../components/type-button/type-button.js";
-import "../../components/type-icon/type-icon.js";
-import "../../components/type-switch/type-switch.js";
+import "@/components/type-text/type-text.js";
+import "@/components/type-button/type-button.js";
+import "@/components/type-icon/type-icon.js";
+import "@/components/type-switch/type-switch.js";
 //funcionalidad completa de todo  de cada card ,puesto eso  es lo que es la
 //la estrucuta de los card
 export class ExtensionCard extends LitElement {

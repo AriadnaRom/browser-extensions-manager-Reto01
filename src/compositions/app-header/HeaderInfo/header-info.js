@@ -1,11 +1,13 @@
 import { LitElement, html, css, unsafeCSS } from "lit";
 import styles from "./header-info.scss?inline";
-import "../../../components/type-text/type-text.js";
-import "../../../components/type-button/type-button.js";
-import "../../../components/type-icon/type-icon.js";
-import logo from "../../../assets/images/logo.svg";
-import iconSun from "../../../assets/images/icon-sun.svg";
-import iconMoon from "../../../assets/images/icon-moon.svg";
+import "@/components/type-text/type-text.js";
+import "@/components/type-button/type-button.js";
+import "@/components/type-icon/type-icon.js";
+const publicAsset = (fileName) =>`${import.meta.env.BASE_URL}assets/images/${fileName}`;
+
+const logo = publicAsset("logo.svg");
+const iconSun = publicAsset("icon-sun.svg");
+const iconMoon = publicAsset("icon-moon.svg");
 
 export class TypeHeader extends LitElement {
   static styles = css`

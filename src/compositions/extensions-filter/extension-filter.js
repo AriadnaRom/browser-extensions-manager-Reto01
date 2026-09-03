@@ -1,6 +1,6 @@
 import { LitElement, html } from "lit";
-import "../../components/type-button/type-button.js";
-import { es } from "../../locales/locale_es.js";
+import "@/components/type-button/type-button.js";
+import { es } from "@/locales/locale_es.js";
 
 export class ExtensionFilter extends LitElement {
   static properties = {
